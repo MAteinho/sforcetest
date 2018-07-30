@@ -159,7 +159,7 @@
 	
 	
 	<target name="quickDeployPSClasses">
-		<sf:deployRecentValidation username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}"  />
+		<sf:deployRecentValidation username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" recentValidationId="${sf.validationID}" />
 	</target>
 	
 	<target name="deployPSClassesRunLocalTests">

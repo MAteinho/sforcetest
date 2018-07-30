@@ -9,7 +9,12 @@ pipeline {
             }
         }
 		
-
+		stage('Deploy') {
+            steps {
+                echo 'Deploying validated package to SalesForce....'
+				sh 'ant quickDeployPSClasses'
+            }
+        }
         
     }
 }
