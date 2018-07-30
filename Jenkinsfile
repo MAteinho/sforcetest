@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Deploying to SalesForce...'
-				bat 'ant deployPSClassescheckOnly'
+				bat 'sh ant deployPSClassescheckOnly'
             }
         }
         
