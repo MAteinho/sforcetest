@@ -2,12 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Validate') {
             steps {
-                echo 'Deploying to SalesForce...'
-				sh 'ant deployPSClassesRunLocalTests'
+                echo 'Validating package....'
+				sh 'ant validateDeployment'
             }
         }
+		
+
         
     }
 }

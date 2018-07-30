@@ -128,6 +128,40 @@
 	  </sf:deploy>
 	</target>
 	
+	<target name="validateDeployment">
+  <record name="log.txt" action="start"/>
+  <sf:deploy username="${sf-target.username}" 
+             password="${sf-target.password}" 
+             serverurl="${sf-prod.serverurl}" 
+             deployRoot="classCreatedByMe" 
+			 maxPoll="${sf.maxPoll}"
+			 testLevel="RunSpecifiedTests"
+			 rollbackOnError="true"
+             checkOnly="true">
+				<runTest>TaskUtilTest</runTest>
+				<runTest>TestVerifyDate</runTest>
+				<runTest>TemperatureConverterTest</runTest>
+	  </sf:deploy>
+  <record name="log.txt" action="stop"/>
+  <loadfile srcFile="log.txt" property="vid"> 
+    <filterchain> 
+      <tailfilter lines="1"/>
+      <tokenfilter>
+        <stringtokenizer suppressdelims="true"/>
+        <containsregex pattern="[a-zA-Z0-9]{18}"/>
+      </tokenfilter>
+    </filterchain> 
+  </loadfile> 
+  <propertyfile file="build.properties" >
+    <entry  key="sf.validationID" value="${vid}"/>
+  </propertyfile>
+</target>
+	
+	
+	<target name="quickDeployPSClasses">
+		<sf:deployRecentValidation username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}"  />
+	</target>
+	
 	<target name="deployPSClassesRunLocalTests">
 	  <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="classCreatedByMe" testLevel="RunLocalTests" rollbackOnError="true" checkOnly="true" >
 	    
