@@ -128,8 +128,8 @@
 	  </sf:deploy>
 	</target>
 	
-	<target name="deployPSClassesRunAllTests">
-	  <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="classCreatedByMe" testLevel="RunLocalTests" rollbackOnError="true" >
+	<target name="deployPSClassesRunLocalTests">
+	  <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="classCreatedByMe" testLevel="RunLocalTests" rollbackOnError="true" checkOnly="true" >
 	    
 	  </sf:deploy>
 	</target>
