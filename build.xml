@@ -130,9 +130,9 @@
 	
 	<target name="validateDeployment">
   <record name="log.txt" action="start"/>
-  <sf:deploy username="${sf-target.username}" 
-             password="${sf-target.password}" 
-             serverurl="${sf-prod.serverurl}" 
+  <sf:deploy username="${sf.username}" 
+             password="${sf.password}" 
+             serverurl="${sf.serverurl}" 
              deployRoot="classCreatedByMe" 
 			 maxPoll="${sf.maxPoll}"
 			 testLevel="RunSpecifiedTests"
