@@ -122,7 +122,9 @@
 	
 	<target name="deployPSClassescheckOnly">
 	  <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="classCreatedByMe" testLevel="RunSpecifiedTests" rollbackOnError="true" checkOnly="true">
-	    <runTest>TestOfClassDeployedByPS</runTest>
+	    <runTest>TaskUtilTest</runTest>
+		<runTest>TestVerifyDate</runTest>
+		<runTest>TemperatureConverterTest</runTest>
 	  </sf:deploy>
 	</target>
 	
