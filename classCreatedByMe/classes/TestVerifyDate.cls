@@ -7,6 +7,8 @@ private class TestVerifyDate {
 		VerifyDate.CheckDates(date1,date2);
 		System.debug('siema');
 		System.debug('siemanko');
+		System.debug('noELO');
+		System.debug('noELO');
 		System.debug('newMessage');
     }
 
