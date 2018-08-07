@@ -4,6 +4,9 @@ public class TaskUtil {
         // Validate input
 		System.debug('siema');
 		System.debug('noELO');
+		System.debug('noELO');
+		System.debug('noELO');
+		System.debug('noELO');
         if (String.isBlank(leadState) || leadState.length() > 2) {
             return null;
         }
